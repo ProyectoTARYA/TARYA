@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "953196163788",
+    "firebase_url": "https://tarya-193715.firebaseio.com",
+    "project_id": "tarya-193715",
+    "storage_bucket": "tarya-193715.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953196163788:android:0767d6298b4f0d63",
+        "android_client_info": {
+          "package_name": "com.proyecto.tarya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953196163788-omqrk9758f1jrvf46un7h5nv4ttfp7g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyecto.tarya",
+            "certificate_hash": "b1d6fc9fb6be5b8b6f0a79105aef05ce75ae85fc"
+          }
+        },
+        {
+          "client_id": "953196163788-i1i1rbkqr2fgtesohjkdjf6dh6sgd74k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjy48_VQquexnSq5c0KZH25Tji83Vha1I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953196163788-i1i1rbkqr2fgtesohjkdjf6dh6sgd74k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
