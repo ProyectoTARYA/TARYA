@@ -3,13 +3,33 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-fragment-26.0.0-beta1.aar\30ce8c82d6c57e604eebc1eb5bbe8ec2\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="9e5ac95feaf0f7fe43e5581d852c5f5e252edea1">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\21.jar" />
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.0.3\7d7f60c4783872861222166f6164215f8951c7b1\common-1.0.3.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7d7f60c4783872861222166f6164215f8951c7b1">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\transition-27.0.2.aar\0259cb67368d408e5b913238c1790c34\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a5fa2e3704f51b30b7b47e12a3a2909728799583">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\46.jar" />
     </item>
     <item
         is-multidex="false"
@@ -23,6 +43,26 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\507fcb227075d7bdc02127d83a23c204\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ac2ce6027755bcf49442e70597bec0feb9064f68">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\18e684aef940b992217acc386fdac2dc\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bcd0bcdef85b31a656af76e39c0c95ce70800772">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\40.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\9202bc0f516299077d442f45def2844e\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
@@ -33,13 +73,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\transition-26.0.0-beta1.aar\e6a376cd975cfe1e60b1df937be04899\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\2c1f9a89c58e8f3229ac99032b46fab1\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="ceb458495ef3dafeec8508559cf9f78cb40e8fce">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\19.jar" />
+        sha1="b432e82447a3af781e927b9ba0bbb9fe2a496d4a">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\49.jar" />
     </item>
     <item
         is-multidex="false"
@@ -63,33 +103,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.0.0-beta1.aar\e3b19644b2a2f46db0e147b20e3110b1\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.2.aar\8adbb37e11d710f14eb419fbe9261d57\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="7fbacba9409947f3f1fa194db4b31dd9f88174a0">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\18.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-v4-26.0.0-beta1.aar\21a003774694187c5de4fdb152337124\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\20.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.0.0-beta1.aar\8258c8b84da5ef8b6c5c92c73fa73a0e\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="26ebe5f1e584ab68955c221073a9ba45b8adb80b">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\24.jar" />
+        sha1="9296d6f092fcdba4fafb6ac26546a39babdab46a">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\45.jar" />
     </item>
     <item
         is-multidex="false"
@@ -103,16 +123,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.0.0-beta1.aar\6c77f62a38dbb01f3c6c6b751874d1d2\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="00290831ca6f060783db9c00f7d15c94b9096d7c">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\22.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\firebase-common-11.8.0.aar\1755bef398bd368ad71c36709f7655e2\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
@@ -120,16 +130,6 @@
         revision="26.0.2"
         sha1="e6aeff19a2ce1eb896557be73cb9ceb56f8d1cf3">
         <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\12.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-beta1.aar\da1ad03eee67057b90fb52f8c7698669\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="1d4a04619afc2262389ed421b6762c77e9dc7a46">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\16.jar" />
     </item>
     <item
         is-multidex="false"
@@ -143,6 +143,36 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.0.0\a2d487452376193fc8c103dd2b9bd5f2b1b44563\common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\59.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.0.2\b9ef4342c934a1a8b107506273dc8061662a322\support-annotations-27.0.2.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0b9ef4342c934a1a8b107506273dc8061662a322">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\a27de90632a19a3709a969f334db916d\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7cc5473b9cf4ea159a263cd477fb3ecb2987b96">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\51.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\38bd1b4496ace7e4a4c439b373535f54\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
@@ -150,6 +180,16 @@
         revision="26.0.2"
         sha1="5ad3911825107d8dd4b017fdecebfd23c08048dd">
         <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\40d79490a7c40f69f5177db98c61fd85\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="caa03787689212c10939f308a55a8dc8a3333ed2">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\44.jar" />
     </item>
     <item
         is-multidex="false"
@@ -163,23 +203,53 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-beta1.aar\4671fdb68cc9b46b0199d96172b358a8\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\design-27.0.2.aar\c1f1e61f19b1d54a1144011f92e3d2f0\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="d9d589dc939ea486f21c048cce2a1366d6f30fe9">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\5.jar" />
+        sha1="031cc16b7b6e77b3c050134ecab9fa5c2640a069">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\38.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-beta1.aar\7b50a7594b71d08539ca702e76409686\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\6e1575d1ea72a49d3447143d28554ab7\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="d1665bf0bf1d4702216fd42524675d18c3789e87">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\17.jar" />
+        sha1="25c8cb628374f9a2d59ff9e1172753751e9a9f84">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\073f407f4ddece77753d6ddcc204a43f\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ed6560f31a6a40b5965f5879d8f2eab1f68def05">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\5f5b186b8822de400afa36a096614f6e\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fe3916317a699975bcce0cba2d13fd2d8cf88922">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\21338bdd20b82c5b87bce3eb882d0161\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="04cd0cacbedcb338f64665b88bad64d145325fbd">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\39.jar" />
     </item>
     <item
         is-multidex="false"
@@ -203,33 +273,13 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.0.0-beta1.aar\1a4be3f26358f0f217b396767f181027\jars\classes.jar"
+        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\b5f7880a39a3d634e54fb71d03c3bca7\jars\classes.jar"
         jumboMode="false"
         min-sdk-version="21"
         optimize="true"
         revision="26.0.2"
-        sha1="926c07c980679a35530feb532d8a5b19147916c3">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\23.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-beta1.aar\be15c308e0500c96fc9ac6b92260e6e5\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="6c47b3d6ef74a657a38945022be05eb3b4360628">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\25.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\alexl\.gradle\caches\transforms-1\files-1.1\design-26.0.0-beta1.aar\88066cfcbaf0b6e200a64f9b0f3f4df4\jars\classes.jar"
-        jumboMode="false"
-        min-sdk-version="21"
-        optimize="true"
-        revision="26.0.2"
-        sha1="20e22f368aa995c262a7993b7bd464d1e2cd1400">
-        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\4.jar" />
+        sha1="618f75fe11febf263e3234c7da7dc892232a5608">
+        <dex dex="C:\Users\alexl\Desktop\TARYA\TARYA\Android\app\build\intermediates\transforms\preDex\release\41.jar" />
     </item>
 
 </items>
