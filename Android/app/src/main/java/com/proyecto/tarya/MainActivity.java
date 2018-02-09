@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -86,6 +87,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View hView =  navigationView.inflateHeaderView(R.layout.nav_header_main);
+        ImageView imgvw = hView.findViewById(R.id.profileBar);
+        TextView tv = hView.findViewById(R.id.nameBar);
+        imgvw.setImageResource(R.drawable.ic_menu_camera);
+        tv.setText("me estoy cansando");
     }
 
     @Override
@@ -162,9 +169,9 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if(opr.isDone()){
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
+        if(opr.isDone()){;
+        GoogleSignInResult result = opr.get();
+        handleSignInResult(result);
         } else {
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -180,13 +187,14 @@ public class MainActivity extends AppCompatActivity
 
             GoogleSignInAccount account = result.getSignInAccount();
 
+            assert account != null;
             name.setText(account.getDisplayName());
-            barName.setText(account.getDisplayName());
+
 
             mail.setText(account.getEmail());
 
             Glide.with(this).load(account.getPhotoUrl()).into(img);
-            Glide.with(this).load(account.getPhotoUrl()).into(box);
+            //Glide.with(this).load(account.getPhotoUrl()).into(box);
 
         } else {
             goLogInScreen();
@@ -194,6 +202,20 @@ public class MainActivity extends AppCompatActivity
     }
 
     public  void LogOut(View view){
+
+    }
+    private void goLogInScreen() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    public void LogOut(MenuItem item) {
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
@@ -204,15 +226,5 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-    }
-    private void goLogInScreen() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }

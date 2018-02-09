@@ -22,7 +22,7 @@
 
     <include
         android:id="@+id/layoutMain"
-        layout="@layout/fragment_cursos" />
+        layout="@layout/fragment_perfil" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
