@@ -1,5 +1,6 @@
 package com.proyecto.tarya;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity
 
     private GoogleApiClient googleApiClient;
 
+    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
