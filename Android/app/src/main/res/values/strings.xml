@@ -25,5 +25,6 @@
     <string name="drive">Fragment de drive</string>
     <string name="not_close_session">No se pudo cerrar la sesión</string>
     <string name="user">Perfil</string>
+    <string name="acceso_perfil">Perfil</string>
 
 </resources>

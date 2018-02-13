@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity
     private TextView name;
     private TextView mail;
 
-    private ImageView box;
-    private TextView barName;
-
     private Fragment fragment;
     private Boolean selected = false;
     private FragmentManager fragmentManager = getFragmentManager();
@@ -69,10 +66,10 @@ public class MainActivity extends AppCompatActivity
                 .build();
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,25 +78,20 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        View hView =  navigationView.inflateHeaderView(R.layout.nav_header_main);
-        ImageView imgvw = hView.findViewById(R.id.profileBar);
-        TextView tv = hView.findViewById(R.id.nameBar);
-        imgvw.setImageResource(R.drawable.ic_menu_camera);
-        tv.setText("me estoy cansando");
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -131,7 +123,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -141,22 +133,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             fragment = new Drive();
             selected = true;
+        } else if (id == R.id.nav_profile) {
+            onStart();
+            fragment = new Perfil();
+            selected = true;
         }
-
-        box = findViewById(R.id.profileBar);
-        box.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragment = new Cursos();
-                getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain,fragment).commit();
-            }
-        });
 
         if (selected){
             getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain,fragment).commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -171,9 +158,9 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if(opr.isDone()){;
-        GoogleSignInResult result = opr.get();
-        handleSignInResult(result);
+        if(opr.isDone()){
+            GoogleSignInResult result = opr.get();
+            handleSignInResult(result);
         } else {
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -184,7 +171,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void handleSignInResult(GoogleSignInResult result) {
+    public void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()){
 
             GoogleSignInAccount account = result.getSignInAccount();
