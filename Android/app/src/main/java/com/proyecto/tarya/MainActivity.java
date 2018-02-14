@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,14 +22,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener, Cursos.OnFragmentInteractionListener, Drive.OnFragmentInteractionListener, Perfil.OnFragmentInteractionListener {
@@ -39,6 +36,9 @@ public class MainActivity extends AppCompatActivity
     private ImageView img;
     private TextView name;
     private TextView mail;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     private Fragment fragment;
     private Boolean selected = false;
@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         mail = findViewById(R.id.correoUsuario);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -69,14 +70,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -87,6 +81,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        firebaseAuth =  FirebaseAuth.getInstance();
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user!=null){
+                    setUserData(user);
+                }else {
+                    goLogInScreen();
+                }
+            }
+        };
+
+    }
+
+    private void setUserData(FirebaseUser user) {
+        name.setText(user.getDisplayName());
+        mail.setText(user.getEmail());
+        Glide.with(this).load(user.getPhotoUrl()).into(img);
     }
 
     @Override
@@ -134,7 +147,12 @@ public class MainActivity extends AppCompatActivity
             fragment = new Drive();
             selected = true;
         } else if (id == R.id.nav_profile) {
-            onStart();
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if (user!=null){
+                setUserData(user);
+            }else {
+                goLogInScreen();
+            }
             fragment = new Perfil();
             selected = true;
         }
@@ -157,42 +175,10 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if(opr.isDone()){
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
-        } else {
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
-                    handleSignInResult(googleSignInResult);
-                }
-            });
-        }
-    }
-
-    public void handleSignInResult(GoogleSignInResult result) {
-        if (result.isSuccess()){
-
-            GoogleSignInAccount account = result.getSignInAccount();
-
-            assert account != null;
-            name.setText(account.getDisplayName());
-
-
-            mail.setText(account.getEmail());
-
-            Glide.with(this).load(account.getPhotoUrl()).into(img);
-            //Glide.with(this).load(account.getPhotoUrl()).into(box);
-
-        } else {
-            goLogInScreen();
-        }
-    }
-
-    public  void LogOut(View view){
+        firebaseAuth.addAuthStateListener(firebaseAuthListener);
 
     }
+
     private void goLogInScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -204,7 +190,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void LogOut(MenuItem item) {
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(firebaseAuthListener!=null){
+            firebaseAuth.removeAuthStateListener(firebaseAuthListener);
+        }
+    }
+
+    public void LogOut(View view) {
+        firebaseAuth.signOut();
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
