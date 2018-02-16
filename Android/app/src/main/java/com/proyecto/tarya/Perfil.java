@@ -1,5 +1,6 @@
 package com.proyecto.tarya;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 
 /**
@@ -27,12 +32,27 @@ public class Perfil extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private String nombre = "";
+    private String correo = "";
+    private Uri img;
 
+    private ImageView imge;
+    private TextView name;
+    private TextView mail;
 
     private OnFragmentInteractionListener mListener;
 
     public Perfil() {
         // Required empty public constructor
+    }
+
+    @SuppressLint("ValidFragment")
+    public Perfil(String names, String email, Uri image) {
+        nombre = names;
+        correo = email;
+        img = image;
+
+
     }
 
     /**
@@ -66,8 +86,16 @@ public class Perfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        name = view.findViewById(R.id.nombreUsuario);
+        mail = view.findViewById(R.id.correoUsuario);
+        imge = view.findViewById(R.id.imagenUsuario);
+
+        name.setText(nombre);
+        mail.setText(correo);
+        Glide.with(this).load(img).into(imge);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -93,7 +121,6 @@ public class Perfil extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
 
 
     /**

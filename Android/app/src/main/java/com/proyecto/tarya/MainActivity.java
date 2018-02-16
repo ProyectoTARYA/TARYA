@@ -31,7 +31,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener, Cursos.OnFragmentInteractionListener, Drive.OnFragmentInteractionListener, Perfil.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+        ,GoogleApiClient.OnConnectionFailedListener
+        ,Cursos.OnFragmentInteractionListener
+        ,Drive.OnFragmentInteractionListener
+        ,Perfil.OnFragmentInteractionListener {
 
     private ImageView img;
     private TextView name;
@@ -39,10 +43,15 @@ public class MainActivity extends AppCompatActivity
 
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    private FirebaseUser userA;
 
     private Fragment fragment;
     private Boolean selected = false;
     private FragmentManager fragmentManager = getFragmentManager();
+
+    private String names;
+    private String email;
+    private Uri image;
 
     private GoogleApiClient googleApiClient;
 
@@ -56,7 +65,9 @@ public class MainActivity extends AppCompatActivity
         name = findViewById(R.id.nombreUsuario);
         mail = findViewById(R.id.correoUsuario);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        //Inicio de Sesion con Google
+        GoogleSignInOptions gso = new GoogleSignInOptions
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -85,9 +96,9 @@ public class MainActivity extends AppCompatActivity
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user!=null){
-                    setUserData(user);
+                userA = firebaseAuth.getCurrentUser();
+                if (userA!=null){
+                    setUserData(userA);
                 }else {
                     goLogInScreen();
                 }
@@ -100,6 +111,9 @@ public class MainActivity extends AppCompatActivity
         name.setText(user.getDisplayName());
         mail.setText(user.getEmail());
         Glide.with(this).load(user.getPhotoUrl()).into(img);
+        names = user.getDisplayName();
+        email = user.getEmail();
+        image = user.getPhotoUrl();
     }
 
     @Override
@@ -147,18 +161,15 @@ public class MainActivity extends AppCompatActivity
             fragment = new Drive();
             selected = true;
         } else if (id == R.id.nav_profile) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user!=null){
-                setUserData(user);
-            }else {
-                goLogInScreen();
-            }
-            fragment = new Perfil();
+            fragment = new Perfil(names,email,image);
             selected = true;
         }
 
         if (selected){
-            getSupportFragmentManager().beginTransaction().replace(R.id.layoutMain,fragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.layoutMain,fragment)
+                    .commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -181,7 +192,9 @@ public class MainActivity extends AppCompatActivity
 
     private void goLogInScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
@@ -199,14 +212,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void LogOut(View view) {
+        //log out de Firebase
         firebaseAuth.signOut();
-        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+
+        //log out de Google
+        Auth.GoogleSignInApi.signOut(googleApiClient)
+                .setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
                 if (status.isSuccess()){
                     goLogInScreen();
                 } else {
-                    Toast.makeText(getApplicationContext(), R.string.not_close_session, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext()
+                            ,R.string.not_close_session, Toast.LENGTH_SHORT).show();
                 }
             }
         });
